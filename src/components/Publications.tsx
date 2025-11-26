@@ -29,7 +29,7 @@ const publications = [
   {
     title: "Without Safeguards, AI-Biology Integration Risks Accelerating Future Pandemics",
     authors: "Dianzhuo Wang*, Marian Huot*, Zechen Zhang, et al.",
-    venue: "NeurIPS AI BioSafety 2025 (Oral)",
+    venue: "Frontiers in Microbiology · NeurIPS AI BioSafety 2025 (Oral)",
     description: "Examining biosecurity risks at the intersection of AI and biological research.",
     link: "https://www.researchgate.net/publication/387933765",
     illustration: "biosafety",
@@ -273,10 +273,12 @@ export default function Publications() {
 
               {/* Content */}
               <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs px-2 py-0.5 bg-accent/10 text-accent rounded">
-                    {pub.venue}
-                  </span>
+                <div className="flex flex-wrap gap-2 mb-2">
+                  {pub.venue.split(" · ").map((v, i) => (
+                    <span key={i} className="text-xs px-2 py-0.5 bg-accent/10 text-accent rounded">
+                      {v}
+                    </span>
+                  ))}
                 </div>
                 <h3 className="font-serif text-xl font-medium mb-2 group-hover:text-accent transition-colors">
                   {pub.title}
