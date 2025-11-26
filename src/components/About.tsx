@@ -43,8 +43,10 @@ export default function About() {
                 >
                   Haim Sompolinsky
                 </a>{" "}
-                at Harvard. I learned how simple theoretical frameworks can illuminate
-                systems far more complex than they have any right to explain.
+                at Harvard. More recently, my research shifted to how LLMs integrate new
+                knowledge through fine-tuning—which led me to believe{" "}
+                <span className="text-foreground">continual learning</span> is the last
+                piece of the AGI puzzle.
               </p>
 
               <p>
@@ -83,7 +85,7 @@ export default function About() {
               </div>
               <div>
                 <p className="text-muted mb-1">Background</p>
-                <p className="text-foreground">Deep Learning Theory</p>
+                <p className="text-foreground">Physics</p>
               </div>
               <div>
                 <p className="text-muted mb-1">Mission</p>
