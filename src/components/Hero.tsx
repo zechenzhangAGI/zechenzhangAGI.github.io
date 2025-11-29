@@ -65,7 +65,7 @@ export default function Hero() {
           </a>{" "}
           for everyone. Science shouldn&apos;t be gatekept—powerful AI can change that.{" "}
           <a
-            href="https://calendly.com/zechen_zhang/chat-with-zechen"
+            href="https://calendly.com/zechen_zhang/chat"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground hover:text-accent transition-colors border-b border-border hover:border-foreground"

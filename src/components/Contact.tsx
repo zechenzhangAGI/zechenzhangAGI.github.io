@@ -15,7 +15,7 @@ export default function Contact() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="https://calendly.com/zechen_zhang/chat-with-zechen"
+            href="https://calendly.com/zechen_zhang/chat"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-lg hover:bg-foreground/90 transition-colors font-medium"
