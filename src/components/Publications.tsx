@@ -29,7 +29,7 @@ const publications = [
   {
     title: "Without Safeguards, AI-Biology Integration Risks Accelerating Future Pandemics",
     authors: "Dianzhuo Wang*, Marian Huot*, Zechen Zhang, et al.",
-    venue: "Frontiers in Microbiology · NeurIPS AI BioSafety 2025 (Oral)",
+    venue: "Frontiers in Microbiology · NeurIPS AI BioSafety 2025 (Best Paper)",
     description: "Examining biosecurity risks at the intersection of AI and biological research.",
     link: "https://www.researchgate.net/publication/387933765",
     illustration: "biosafety",
