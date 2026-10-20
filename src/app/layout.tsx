@@ -1,20 +1,47 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { IBM_Plex_Mono, IBM_Plex_Sans, STIX_Two_Text } from "next/font/google";
+import { themeInitScript } from "@/theme-script";
 import "./globals.css";
 
+const serif = STIX_Two_Text({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-stix",
+  display: "swap",
+});
+
+const sans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-plex-sans",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
+
+const description =
+  "Zechen Zhang is a PhD candidate in Physics at Harvard, advised by Haim Sompolinsky, and the founder of Orchestra Research. He works on how learning systems acquire knowledge, from the statistical mechanics of neural networks to language models and AI agents that do research.";
+
 export const metadata: Metadata = {
-  title: "Zechen Zhang | Building AI Scientific Assistants for Everyone",
-  description: "Zechen Zhang - Founder of Orchestra, Harvard PhD, deep learning theory researcher. Building AI scientific assistants to democratize research. From statistical mechanics of neural networks to AI agents for science.",
+  title: "Zechen Zhang",
+  description,
   keywords: [
     "Zechen Zhang",
-    "Orchestra",
-    "AI scientific assistant",
-    "deep learning theory",
-    "Harvard PhD",
+    "Orchestra Research",
+    "Harvard Physics",
+    "Haim Sompolinsky",
+    "statistical mechanics of learning",
     "AI for science",
-    "machine learning researcher",
-    "AI safety",
+    "agent-native research",
+    "ResearchTree",
+    "Agent-Native Research Artifacts",
     "continual learning",
-    "LLM memory",
   ],
   authors: [{ name: "Zechen Zhang" }],
   creator: "Zechen Zhang",
@@ -23,33 +50,30 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Zechen Zhang | Building AI Scientific Assistants for Everyone",
-    description: "Founder of Orchestra. Harvard PhD in deep learning theory. Building AI scientific assistants to democratize research for everyone with a curious mind.",
+    title: "Zechen Zhang",
+    description,
     url: "https://zechenzhangAGI.github.io",
     siteName: "Zechen Zhang",
     locale: "en_US",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Zechen Zhang | Building AI Scientific Assistants for Everyone",
-    description: "Founder of Orchestra. Harvard PhD in deep learning theory. Building AI scientific assistants to democratize research.",
+    card: "summary",
+    title: "Zechen Zhang",
+    description,
     creator: "@ZechenZhang5",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
-  verification: {
-    google: "your-google-verification-code", // Add your Google Search Console verification code
-  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FBFBF9" },
+    { media: "(prefers-color-scheme: dark)", color: "#131416" },
+  ],
 };
 
 export default function RootLayout({
@@ -58,10 +82,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${serif.variable} ${sans.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
