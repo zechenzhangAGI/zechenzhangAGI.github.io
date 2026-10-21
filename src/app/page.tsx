@@ -6,12 +6,12 @@ import {
   links,
   me,
   now,
-  otherPapers,
+  papers,
   projects,
-  selectedPapers,
   writing,
   type Link,
   type Paper,
+  type Post,
 } from "@/content";
 
 const updated = new Date().toLocaleDateString("en-US", {
@@ -71,17 +71,29 @@ function Meta({ paper }: { paper: Paper }) {
   );
 }
 
-function SelectedPaper({ paper }: { paper: Paper }) {
+// A figure from the work, or for writing without one, a plain typographic plate.
+function Plate({ href, image, alt, label, where }: { href: string; image?: string; alt?: string; label: string; where?: string }) {
+  return (
+    <a href={href} className="plate-link" target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
+      <span className="plate">
+        {image ? (
+          <Image src={image} alt={alt ?? ""} width={560} height={420} />
+        ) : (
+          <span className="text-plate">
+            <span className="kind">{label}</span>
+            {where && <span className="src">{where}</span>}
+          </span>
+        )}
+      </span>
+    </a>
+  );
+}
+
+function PaperItem({ paper }: { paper: Paper }) {
   const primary = paper.links[0]?.href;
   return (
     <li className="paper">
-      {paper.figure && primary && (
-        <a href={primary} className="plate-link" target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
-          <span className="plate">
-            <Image src={paper.figure.src} alt={paper.figure.alt} width={560} height={420} />
-          </span>
-        </a>
-      )}
+      {paper.figure && primary && <Plate href={primary} image={paper.figure.src} alt={paper.figure.alt} label="" />}
       <div>
         <Meta paper={paper} />
         <h3 className="p-title">{primary ? <Ext href={primary}>{paper.title}</Ext> : paper.title}</h3>
@@ -93,15 +105,20 @@ function SelectedPaper({ paper }: { paper: Paper }) {
   );
 }
 
-function OtherPaper({ paper }: { paper: Paper }) {
-  const primary = paper.links[0]?.href;
+function PostItem({ post }: { post: Post }) {
   return (
-    <li>
-      <h3 className="p-title">{primary ? <Ext href={primary}>{paper.title}</Ext> : paper.title}</h3>
-      <Authors text={paper.authors} />
-      <div className="o-row">
-        <Meta paper={paper} />
-        <LinkRow items={paper.links} />
+    <li className="paper post">
+      <Plate href={post.href} image={post.image} alt={post.title} label={post.kind} where={post.where} />
+      <div>
+        <p className="meta mono">
+          <span>{post.date}</span>
+          <span className="role">{post.where}</span>
+          <span className="role">{post.kind}</span>
+        </p>
+        <h3 className="p-title">
+          <Ext href={post.href}>{post.title}</Ext>
+        </h3>
+        <p className="summary">{post.summary}</p>
       </div>
     </li>
   );
@@ -128,7 +145,7 @@ export default function Home() {
             <div>
               <h1>{me}</h1>
               <p className="role">
-                PhD candidate in Physics, Harvard University
+                PhD candidate in Physics, Harvard University (on leave)
                 <br />
                 Founder, Orchestra Research
               </p>
@@ -138,8 +155,8 @@ export default function Home() {
 
           <div className="bio">
             <p>
-              I study how learning systems take in new knowledge, and what limits them. I&apos;m a final-year PhD
-              candidate in Physics at Harvard, advised by{" "}
+              I study how learning systems take in new knowledge, and what limits them. I&apos;m a PhD candidate in
+              Physics at Harvard, advised by{" "}
               <Ext href="https://en.wikipedia.org/wiki/Haim_Sompolinsky" className="tl">
                 Haim Sompolinsky
               </Ext>{" "}
@@ -147,13 +164,13 @@ export default function Home() {
               dynamics before it reached the statistical mechanics of neural networks.
             </p>
             <p>
-              Most of my work now is about AI that does research: measuring how much of a research project a model
-              can carry out on its own, and building formats and tools that let agents and scientists work together.
-              I founded{" "}
+              Most of my work now is on the foundations for humans and AI doing science together: measuring the
+              research ability and taste of AI models, designing RL environments that train and test them, and
+              building tools for human researchers and AI agents alike. I founded{" "}
               <Ext href={links.orchestra} className="tl">
                 Orchestra Research
               </Ext>{" "}
-              to build that environment.
+              to do this work.
             </p>
           </div>
 
@@ -217,15 +234,8 @@ export default function Home() {
           </p>
 
           <ul>
-            {selectedPapers.map((p) => (
-              <SelectedPaper key={p.title} paper={p} />
-            ))}
-          </ul>
-
-          <p className="sub-h mono">Also</p>
-          <ul className="compact">
-            {otherPapers.map((p) => (
-              <OtherPaper key={p.title} paper={p} />
+            {papers.map((p) => (
+              <PaperItem key={p.title} paper={p} />
             ))}
           </ul>
           <p className="footnote mono">* equal contribution</p>
@@ -276,17 +286,9 @@ export default function Home() {
               Orchestra blog ↗
             </Ext>
           </div>
-          <ul className="rows">
+          <ul>
             {writing.map((w) => (
-              <li key={w.href}>
-                <span className="when mono">{w.date}</span>
-                <span>
-                  <Ext href={w.href} className="what tl">
-                    {w.title}
-                  </Ext>
-                  <span className="where mono">{w.where}</span>
-                </span>
-              </li>
+              <PostItem key={w.href} post={w} />
             ))}
           </ul>
         </section>

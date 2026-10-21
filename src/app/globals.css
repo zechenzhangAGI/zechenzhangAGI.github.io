@@ -452,8 +452,48 @@ a {
   margin-top: 10px;
 }
 
+/* Writing uses the paper layout at a smaller scale. */
+.paper.post {
+  grid-template-columns: 136px 1fr;
+  gap: 24px;
+  padding-block: 18px;
+}
+
+.paper.post .p-title {
+  font-size: 18px;
+}
+
+.paper.post .summary {
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.text-plate {
+  display: grid;
+  place-items: center;
+  gap: 4px;
+  text-align: center;
+  color: #50565e;
+}
+
+.text-plate .kind {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.1;
+}
+
+.text-plate .src {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6e747b;
+}
+
 @media (max-width: 640px) {
-  .paper {
+  .paper,
+  .paper.post {
     grid-template-columns: 1fr;
     gap: 0;
   }

@@ -49,7 +49,7 @@ export type Paper = {
   links: Link[];
 };
 
-export const selectedPapers: Paper[] = [
+export const papers: Paper[] = [
   {
     title: "The Last Human-Written Paper: Agent-Native Research Artifacts",
     authors: "Jiachen Liu, Jiaxin Pei, Jintao Huang, et al., Zechen Zhang",
@@ -84,6 +84,56 @@ export const selectedPapers: Paper[] = [
     links: [{ label: "project page", href: "https://researchtree.vercel.app" }],
   },
   {
+    title: "Sci-Reasoning: A Dataset Decoding AI Innovation Patterns",
+    authors: "Jiachen Liu, Maestro Harmon, Zechen Zhang",
+    role: "last author",
+    venue: "arXiv",
+    year: 2026,
+    summary:
+      "Traces 3,819 Oral and Spotlight papers from NeurIPS, ICML and ICLR (2023–2025) back to the work they build on, to capture the reasoning behind AI breakthroughs. Fifteen thinking patterns emerge; three of them (gap-driven reframing, cross-domain synthesis and representation shift) account for 52.7% of papers.",
+    figure: {
+      src: "/figures/scireasoning.webp",
+      alt: "Share of 3,819 papers using each of 15 thinking patterns; gap-driven reframing leads at 24.2%, cross-domain synthesis follows at 18.0%.",
+    },
+    links: [
+      { label: "arXiv", href: "https://arxiv.org/abs/2601.04577" },
+      { label: "story", href: "https://www.orchestra-research.com/perspectives/sci-reasoning-story" },
+    ],
+  },
+  {
+    title: "Humanity's Last Exam",
+    authors: "Long Phan, Alice Gatti, … , Dan Hendrycks (about 1,100 authors, including Zechen Zhang)",
+    role: "contributor",
+    venue: "Nature",
+    year: 2026,
+    accepted: true,
+    summary:
+      "2,500 expert-written questions across dozens of subjects, each with an unambiguous, verifiable answer that cannot be looked up quickly. Frontier models score low on it and are poorly calibrated about their own answers.",
+    figure: {
+      src: "/figures/hle.webp",
+      alt: "Sample questions from Humanity's Last Exam, in classics, ecology, mathematics and computer science.",
+    },
+    links: [
+      { label: "paper", href: "https://doi.org/10.1038/s41586-025-09962-4" },
+      { label: "arXiv", href: "https://arxiv.org/abs/2501.14249" },
+    ],
+  },
+  {
+    title: "Without Safeguards, AI–Biology Integration Risks Accelerating Future Pandemics",
+    authors: "Dianzhuo Wang*, Marian Huot*, Zechen Zhang, Kaiyi Jiang, Eugene Shakhnovich, Kevin Esvelt",
+    venue: "Frontiers in Microbiology",
+    year: 2026,
+    accepted: true,
+    note: "Best Paper, NeurIPS 2025 AI BioSafety Workshop",
+    summary:
+      "Protein language models inside automated labs can now design and optimize proteins in closed loops, which speeds up therapeutics and also creates dual-use risks. We map that progress, propose a capability-oriented framework for integrated AI–biology systems, and outline training- and inference-time safeguards.",
+    figure: {
+      src: "/figures/aibio.webp",
+      alt: "Correlation between predicted and measured mutational effects on ProteinGym, rising with each model's release year from 2018 to 2025.",
+    },
+    links: [{ label: "paper", href: "https://doi.org/10.3389/fmicb.2025.1734561" }],
+  },
+  {
     title: "New News: System-2 Fine-tuning for Robust Integration of New Knowledge",
     authors: "Core Francisco Park*, Zechen Zhang*, Hidenori Tanaka",
     role: "co-first author",
@@ -96,6 +146,19 @@ export const selectedPapers: Paper[] = [
       alt: "Accuracy on questions about new facts for Qwen2.5-14B-Instruct: 18% before fine-tuning, 39% after naive fine-tuning, 70% after Self-QA fine-tuning, 91% with the news in context.",
     },
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2505.01812" }],
+  },
+  {
+    title: "Memorization and Knowledge Injection in Gated LLMs",
+    authors: "Xu Pan*, Ely Hahami*, Zechen Zhang, Haim Sompolinsky",
+    venue: "arXiv",
+    year: 2025,
+    summary:
+      "Stores each new memory in its own gated low-rank weights; at inference a gate activates the relevant memories by matching the query to stored embeddings. The model can recall whole memories and answer questions about them, with less catastrophic forgetting than baseline methods.",
+    figure: {
+      src: "/figures/mega.webp",
+      alt: "MEGa pipeline: each memory is fine-tuned into its own LoRA adapter, and at inference a gate weights the adapters by query–memory embedding similarity.",
+    },
+    links: [{ label: "arXiv", href: "https://arxiv.org/abs/2504.21239" }],
   },
   {
     title: "When Narrower is Better: The Narrow Width Limit of Bayesian Parallel Branching Neural Networks",
@@ -128,48 +191,6 @@ export const selectedPapers: Paper[] = [
       { label: "arXiv", href: "https://arxiv.org/abs/2310.07582" },
       { label: "code", href: "https://github.com/zechenzhangAGI/Emergent-World-Representations-Othello" },
     ],
-  },
-];
-
-export const otherPapers: Paper[] = [
-  {
-    title: "Sci-Reasoning: A Dataset Decoding AI Innovation Patterns",
-    authors: "Jiachen Liu, Maestro Harmon, Zechen Zhang",
-    role: "last author",
-    venue: "arXiv",
-    year: 2026,
-    links: [
-      { label: "arXiv", href: "https://arxiv.org/abs/2601.04577" },
-      { label: "story", href: "https://www.orchestra-research.com/perspectives/sci-reasoning-story" },
-    ],
-  },
-  {
-    title: "Humanity's Last Exam",
-    authors: "Long Phan, Alice Gatti, … , Dan Hendrycks (about 1,100 authors, including Zechen Zhang)",
-    role: "contributor",
-    venue: "Nature",
-    year: 2026,
-    accepted: true,
-    links: [
-      { label: "paper", href: "https://doi.org/10.1038/s41586-025-09962-4" },
-      { label: "arXiv", href: "https://arxiv.org/abs/2501.14249" },
-    ],
-  },
-  {
-    title: "Without Safeguards, AI–Biology Integration Risks Accelerating Future Pandemics",
-    authors: "Dianzhuo Wang*, Marian Huot*, Zechen Zhang, Kaiyi Jiang, Eugene Shakhnovich, Kevin Esvelt",
-    venue: "Frontiers in Microbiology",
-    year: 2026,
-    accepted: true,
-    note: "Best Paper, NeurIPS 2025 AI BioSafety Workshop",
-    links: [{ label: "paper", href: "https://doi.org/10.3389/fmicb.2025.1734561" }],
-  },
-  {
-    title: "Memorization and Knowledge Injection in Gated LLMs",
-    authors: "Xu Pan*, Ely Hahami*, Zechen Zhang, Haim Sompolinsky",
-    venue: "arXiv",
-    year: 2025,
-    links: [{ label: "arXiv", href: "https://arxiv.org/abs/2504.21239" }],
   },
 ];
 
@@ -236,18 +257,117 @@ export const earlierProjects: Project[] = [
   },
 ];
 
-export const writing: { date: string; title: string; href: string; where: string }[] = [
-  { date: "2026-04", title: "The Last Human-Written Paper", href: "https://www.orchestra-research.com/ara", where: "Orchestra" },
-  { date: "2026-04", title: "The Golden Age of Research Starts Now", href: "https://www.orchestra-research.com/perspectives/the-researcher-era", where: "Orchestra" },
-  { date: "2026-04", title: "Introducing the New Orchestra", href: "https://www.orchestra-research.com/perspectives/introducing-new-orchestra", where: "Orchestra" },
-  { date: "2026-01", title: "An ACL Submission in 10 Days, from Scratch", href: "https://www.orchestra-research.com/perspectives/sci-reasoning-story", where: "Orchestra" },
-  { date: "2025-11", title: "Vibe Fine-tuning LLMs", href: "https://www.orchestra-research.com/perspectives/LLM-with-Orchestra", where: "Orchestra" },
-  { date: "2025-11", title: "AI Research Engineering Skills", href: "https://www.orchestra-research.com/perspectives/ai-research-skills", where: "Orchestra" },
-  { date: "2022", title: "Science for the Possible World", href: "https://www.lesswrong.com/posts/kDJtsGMX7YkYSEwqH/science-for-the-possible-world", where: "LessWrong" },
+export type Post = {
+  date: string;
+  title: string;
+  href: string;
+  where: string;
+  kind: string;
+  summary: string;
+  image?: string;
+};
+
+export const writing: Post[] = [
+  {
+    date: "2026-04",
+    title: "The Last Human-Written Paper",
+    href: "https://www.orchestra-research.com/ara",
+    where: "Orchestra",
+    kind: "Deep dive",
+    summary: "Why papers should become packages that agents can understand, reproduce and extend.",
+    image: "/figures/ara.webp",
+  },
+  {
+    date: "2026-04",
+    title: "The Golden Age of Research Starts Now",
+    href: "https://www.orchestra-research.com/perspectives/the-researcher-era",
+    where: "Orchestra",
+    kind: "Opinion",
+    summary: "A new wave of citizen scientists is coming, and it will dwarf anything history has seen.",
+    image: "/writing/golden-age.webp",
+  },
+  {
+    date: "2026-04",
+    title: "Introducing the New Orchestra",
+    href: "https://www.orchestra-research.com/perspectives/introducing-new-orchestra",
+    where: "Orchestra",
+    kind: "Product",
+    summary: "An AI-native research IDE, built for the messy, open-ended nature of real discovery.",
+    image: "/writing/orchestra.webp",
+  },
+  {
+    date: "2026-01",
+    title: "Intro to AI Research",
+    href: "https://www.orchestra-research.com/intro-to-ai-research",
+    where: "Orchestra",
+    kind: "Course",
+    summary: "A free series on AI research fundamentals, from gradient clipping to μP, taught with toy models.",
+  },
+  {
+    date: "2026-01",
+    title: "An ACL Submission in 10 Days, from Scratch",
+    href: "https://www.orchestra-research.com/perspectives/sci-reasoning-story",
+    where: "Orchestra",
+    kind: "Case study",
+    summary: "How analyzing 3,819 top papers for the patterns behind breakthroughs became Sci-Reasoning.",
+    image: "/writing/sci-reasoning-story.webp",
+  },
+  {
+    date: "2025-11",
+    title: "Vibe Fine-tuning LLMs",
+    href: "https://www.orchestra-research.com/perspectives/LLM-with-Orchestra",
+    where: "Orchestra",
+    kind: "Case study",
+    summary: "Reproducing Thinking Machines Lab's LoRA results in a day by prompting Orchestra in plain language.",
+    image: "/writing/vibe-finetuning.webp",
+  },
+  {
+    date: "2025-11",
+    title: "Agent-Oriented Compute",
+    href: "https://www.orchestra-research.com/perspectives/agent-oriented-compute",
+    where: "Orchestra",
+    kind: "Deep dive",
+    summary: "What is the most natural infrastructure for AI agents that run scientific experiments?",
+    image: "/writing/agent-oriented-compute.webp",
+  },
+  {
+    date: "2025-11",
+    title: "AI Research Engineering Skills",
+    href: "https://www.orchestra-research.com/perspectives/ai-research-skills",
+    where: "Orchestra",
+    kind: "Deep dive",
+    summary: "Modular knowledge packages that let AI agents run real research experiments.",
+    image: "/writing/ai-research-skills.webp",
+  },
+  {
+    date: "2025-11",
+    title: "Build AI Co-Scientists That Actually Help",
+    href: "https://www.orchestra-research.com/perspectives/build-ai-co-scientists",
+    where: "Orchestra",
+    kind: "Opinion",
+    summary: "Why collaborative, human-in-the-loop research agents beat fully autonomous ones.",
+    image: "/writing/co-scientists.webp",
+  },
+  {
+    date: "2025-01",
+    title: "Our Mission: Democratizing Scientific Discovery",
+    href: "https://www.orchestra-research.com/perspectives/mission",
+    where: "Orchestra",
+    kind: "Opinion",
+    summary: "Why we are building Orchestra: to remove the friction between a research idea and a result.",
+  },
+  {
+    date: "2022",
+    title: "Science for the Possible World",
+    href: "https://www.lesswrong.com/posts/kDJtsGMX7YkYSEwqH/science-for-the-possible-world",
+    where: "LessWrong",
+    kind: "Essay",
+    summary: "As more of life moves into digital worlds, a science of the rules that generate complexity there.",
+  },
 ];
 
 export const education = [
-  { years: "2019–", what: "PhD, Physics", where: "Harvard University", detail: "Advisor: Haim Sompolinsky" },
+  { years: "2019–", what: "PhD, Physics", where: "Harvard University", detail: "Advisor: Haim Sompolinsky. Currently on leave." },
   { years: "2018–19", what: "MASt, Mathematics (Part III)", where: "University of Cambridge" },
   { years: "2016–18", what: "BA, Physics (Honors), minor in Philosophy", where: "Swarthmore College" },
 ];
