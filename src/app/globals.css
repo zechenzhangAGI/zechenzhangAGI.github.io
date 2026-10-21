@@ -533,6 +533,10 @@ a {
   margin-top: 0;
 }
 
+.more {
+  margin-top: 14px;
+}
+
 .footnote {
   margin-top: 16px;
   color: var(--ink-3);

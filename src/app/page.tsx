@@ -291,6 +291,11 @@ export default function Home() {
               <PostItem key={w.href} post={w} />
             ))}
           </ul>
+          <p className="more mono">
+            <Ext href={links.blog} className="ml">
+              More on the Orchestra blog ↗
+            </Ext>
+          </p>
         </section>
 
         <section id="education" className="sec" aria-labelledby="bg-h">
