@@ -58,7 +58,7 @@ export const papers: Paper[] = [
     year: 2026,
     accepted: true,
     summary:
-      "A paper flattens a branching project into one winning story and leaves out much of what it takes to reproduce it. ARA packages the work as layers an agent can act on: claims, runnable code, the full exploration tree with its dead ends, and the evidence. Given an ARA instead of the PDF, agents answer 94% of questions about the work rather than 72%.",
+      "Papers are written for human readers: one tidy story, with the dead ends and the tricks that made it work cut out. That is exactly what an agent needs to build on the work. ARA is a format for research that agents can read, run and extend, with the whole exploration kept in, failures included.",
     figure: {
       src: "/figures/ara.webp",
       alt: "Left: a PDF paper, which drops decision history, failed experiments and code. Right: ARA's four layers for logic, source, exploration trace and evidence.",
@@ -76,7 +76,7 @@ export const papers: Paper[] = [
     venue: "Under review",
     year: 2026,
     summary:
-      "Turns a theoretical paper into a tree of graded problems, from its main result down to atomic steps, and asks how large a piece of research a model can reconstruct alone. Each node is answered blind and graded against the paper's own derivation. Split into steps, frontier models recover nearly all of a paper; asked for the main result at once, far less.",
+      "Can a language model redo a published piece of research on its own? We break a paper into a tree of problems, from the main result down to small steps, and grade the model at every level. Models handle almost every step, but struggle to put the steps together into the whole result.",
     figure: {
       src: "/figures/researchtree.webp",
       alt: "A scored problem tree for one paper, from the whole result down to 42 atomic steps, colored by the weakest model that solves each node.",
@@ -90,7 +90,7 @@ export const papers: Paper[] = [
     venue: "arXiv",
     year: 2026,
     summary:
-      "Traces 3,819 Oral and Spotlight papers from NeurIPS, ICML and ICLR (2023–2025) back to the work they build on, to capture the reasoning behind AI breakthroughs. Fifteen thinking patterns emerge; three of them (gap-driven reframing, cross-domain synthesis and representation shift) account for 52.7% of papers.",
+      "Where do good ideas in AI research come from? We traced top NeurIPS, ICML and ICLR papers back to the work they built on and mapped the reasoning in between. A few recurring moves explain more than half of them: reframing a known gap, borrowing from another field, changing the representation.",
     figure: {
       src: "/figures/scireasoning.webp",
       alt: "Share of 3,819 papers using each of 15 thinking patterns; gap-driven reframing leads at 24.2%, cross-domain synthesis follows at 18.0%.",
@@ -108,7 +108,7 @@ export const papers: Paper[] = [
     year: 2026,
     accepted: true,
     summary:
-      "2,500 expert-written questions across dozens of subjects, each with an unambiguous, verifiable answer that cannot be looked up quickly. Frontier models score low on it and are poorly calibrated about their own answers.",
+      "A final exam for AI, written by experts at the edge of their fields: questions with clear answers that you can't just look up. When it came out, the best models failed most of it and were confident anyway.",
     figure: {
       src: "/figures/hle.webp",
       alt: "Sample questions from Humanity's Last Exam, in classics, ecology, mathematics and computer science.",
@@ -126,7 +126,7 @@ export const papers: Paper[] = [
     accepted: true,
     note: "Best Paper, NeurIPS 2025 AI BioSafety Workshop",
     summary:
-      "Protein language models inside automated labs can now design and optimize proteins in closed loops, which speeds up therapeutics and also creates dual-use risks. We map that progress, propose a capability-oriented framework for integrated AI–biology systems, and outline training- and inference-time safeguards.",
+      "Protein language models wired into automated labs can now design proteins in a closed loop, with little human input. That is great news for drug and vaccine discovery, and worrying for biosecurity. We map where the field is and propose how to evaluate these systems and build safeguards into them.",
     figure: {
       src: "/figures/aibio.webp",
       alt: "Correlation between predicted and measured mutational effects on ProteinGym, rising with each model's release year from 2018 to 2025.",
@@ -140,7 +140,7 @@ export const papers: Paper[] = [
     venue: "arXiv",
     year: 2025,
     summary:
-      "Language models use a new fact well when it is in their context, but naive fine-tuning on it teaches them poorly. Letting the model rehearse the news itself (generate questions and answers with the news in context, then train without it) closes much of the gap. On Qwen2.5-14B: 70% with self-generated QA, 39% with naive fine-tuning, 91% with the news in context.",
+      "Tell a language model a new fact in its prompt and it reasons with it well. Fine-tune it on the same fact and it does much worse. Our fix borrows from how people study: the model quizzes itself with the news in view, then trains on its own notes. A surprise along the way: if the news is in the context during training, the model learns very little.",
     figure: {
       src: "/figures/newnews.webp",
       alt: "Accuracy on questions about new facts for Qwen2.5-14B-Instruct: 18% before fine-tuning, 39% after naive fine-tuning, 70% after Self-QA fine-tuning, 91% with the news in context.",
@@ -153,7 +153,7 @@ export const papers: Paper[] = [
     venue: "arXiv",
     year: 2025,
     summary:
-      "Stores each new memory in its own gated low-rank weights; at inference a gate activates the relevant memories by matching the query to stored embeddings. The model can recall whole memories and answer questions about them, with less catastrophic forgetting than baseline methods.",
+      "Can a language model remember new events the way we do, by learning them rather than looking them up? MEGa writes each memory into its own small set of weights, and a gate picks the right ones when a question comes in, loosely like the brain's complementary memory systems. It recalls new memories with less forgetting of old ones.",
     figure: {
       src: "/figures/mega.webp",
       alt: "MEGa pipeline: each memory is fine-tuned into its own LoRA adapter, and at inference a gate weights the adapters by query–memory embedding similarity.",
@@ -168,7 +168,7 @@ export const papers: Paper[] = [
     year: 2025,
     accepted: true,
     summary:
-      "The usual intuition is that wider networks generalize better. In networks with parallel branches, statistical mechanics shows a different regime: as width shrinks, the branches break symmetry and specialize, their norms come to reflect the data rather than the prior, and where the error is bias-limited the narrow network does better than or as well as the wide one.",
+      "The usual rule is that wider networks generalize better. We work out, with statistical mechanics, a regime where narrow networks with parallel branches match or beat wide ones: the branches stop being interchangeable, and each one specializes to structure in the data.",
     figure: {
       src: "/figures/narrow.webp",
       alt: "Squared branch norms against width N: two branches that are equal at large width split apart as the network narrows. Theory curves match sampling.",
@@ -182,7 +182,7 @@ export const papers: Paper[] = [
     venue: "NeurIPS 2023 SoLaR Workshop",
     year: 2023,
     summary:
-      "Small transformers trained only on legal Othello moves encode the board linearly, and far more cleanly relative to the player to move (mine and yours, up to 99.5% probe accuracy) than as black and white (about 75%), as Nanda et al. first observed. We use interventions to test when the model actually relies on that representation.",
+      "A transformer that only ever sees lists of Othello moves still builds a picture of the board inside. As Nanda et al. found, it pictures the board as mine and yours, relative to the player about to move, not as black and white. We trace this picture across small models and edit it to test when the model actually uses it.",
     figure: {
       src: "/figures/othello.webp",
       alt: "Othello boards after the first three moves, shown as black and white (top) and in the mine-and-yours representation (bottom).",
