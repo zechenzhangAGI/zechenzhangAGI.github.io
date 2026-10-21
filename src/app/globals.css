@@ -544,15 +544,14 @@ a {
 
 /* ---------- projects ---------- */
 
-.projects {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 36px;
+.project {
+  padding-block: 16px 18px;
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 16px;
 }
 
-.project {
-  padding-block: 14px 16px;
-  scroll-margin-top: 16px;
+.project:last-child {
+  border-bottom: 0;
 }
 
 .project h3 {
@@ -571,6 +570,7 @@ a {
 }
 
 .project p:not(.plinks) {
+  max-width: 66ch;
   margin-top: 6px;
   color: var(--ink-2);
   font-size: 15.5px;
@@ -579,13 +579,6 @@ a {
 
 .project .plinks {
   margin-top: 8px;
-}
-
-@media (max-width: 640px) {
-  .projects {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
 }
 
 .earlier li {

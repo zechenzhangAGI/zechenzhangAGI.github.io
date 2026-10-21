@@ -32,7 +32,7 @@ export const now: { tag: string; name: string; text: string; href?: string }[] =
   {
     tag: "In progress",
     name: "SimLab",
-    text: ": simulated labs built on real data, for measuring an agent's research judgment and taste.",
+    text: ": compressing long-horizon research into gyms that agents can train in, built on real data.",
   },
 ];
 
@@ -208,25 +208,25 @@ export const projects: Project[] = [
     id: "orchestra",
     name: "Orchestra",
     role: "Founder",
-    text: "A research workspace where scientists and AI agents work side by side. You decide where the project goes, agents do the reading, coding and experiments, and every path you tried stays on the map, dead ends included.",
+    text: "An AI-native research IDE, as far as we know the first. Real research is a long, open-ended game, and the breakthroughs still need a person's intuition and taste. So in Orchestra you set the direction and curate the ideas, while agents read the literature, run the experiments and analyze the results. It remembers the whole journey, every dead end and half-followed hunch, so that weeks later it can help you pivot.",
     links: [{ label: "orchestra-research.com", href: "https://www.orchestra-research.com" }],
   },
   {
     name: "AI-Research-SKILLs",
     status: "13k+ stars",
-    text: "An open-source library of 98 skills that turn coding agents such as Claude Code, Codex and Gemini into research engineers, from running GRPO to writing the paper.",
+    text: "An open-source library of skills that turns coding agents like Claude Code, Codex and Gemini into research engineers, from running GRPO to writing the paper.",
     links: [{ label: "GitHub", href: "https://github.com/Orchestra-Research/AI-Research-SKILLs" }],
   },
   {
     name: "ResearchTree",
     status: "Under review",
-    text: "The benchmark above, with an explorer for browsing real problem trees and every model's graded answers.",
+    text: "A benchmark for research ability that can be rebuilt after every model release. It turns any paper with a written derivation into a tree of problems, from the main result down to exam-sized steps, and grades a model at every level against the paper itself. That gives a model's research horizon: how big a piece of research it can carry on its own. Frontier models solve almost every step but much less of a whole paper, and when they fall short they mostly leave things out rather than get them wrong. Next, we want to use the trees as a training environment for long-horizon research.",
     links: [{ label: "researchtree.vercel.app", href: "https://researchtree.vercel.app" }],
   },
   {
     name: "SimLab",
     status: "In progress",
-    text: "Simulated labs built on real experimental data. An agent spends a fixed budget on cheap or expensive experiments and is scored against what really happened, which tests research judgment and taste rather than recall.",
+    text: "Long research projects take months and real money, so agents rarely get to practice them end to end. SimLab compresses long-horizon tasks into gyms built on real experimental data: an agent plans experiments, pays for them, reads the results and decides what to try next, in minutes instead of months. The same environments measure research judgment and taste, and give agents something to train on.",
     links: [],
   },
 ];
