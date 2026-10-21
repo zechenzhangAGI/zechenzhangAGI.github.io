@@ -208,7 +208,7 @@ export const projects: Project[] = [
     id: "orchestra",
     name: "Orchestra",
     role: "Founder",
-    text: "An AI-native research environment. Scientists set the direction and agents carry out the steps: literature, code and experiments. Every project is kept as an exploration tree, dead ends included.",
+    text: "A research workspace where scientists and AI agents work side by side. You decide where the project goes, agents do the reading, coding and experiments, and every path you tried stays on the map, dead ends included.",
     links: [{ label: "orchestra-research.com", href: "https://www.orchestra-research.com" }],
   },
   {
