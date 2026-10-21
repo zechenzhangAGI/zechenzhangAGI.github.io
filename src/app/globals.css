@@ -280,6 +280,40 @@ a {
   margin-top: 24px;
 }
 
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 22px;
+  margin-left: -9px;
+}
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  color: var(--ink-2);
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.socials a:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+}
+
+.socials svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Filled brand glyphs read heavier than the outlined ones; size them down. */
+.socials svg[fill="currentColor"] {
+  width: 17px;
+  height: 17px;
+}
+
 /* ---------- sections ---------- */
 
 .sec {

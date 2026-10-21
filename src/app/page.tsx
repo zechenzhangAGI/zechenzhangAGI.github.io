@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SocialLinks from "@/components/SocialLinks";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
   earlierProjects,
@@ -174,26 +175,7 @@ export default function Home() {
             </p>
           </div>
 
-          <p id="contact" className="reach mono">
-            <a href={`mailto:${links.email}`} className="ml">
-              {links.email}
-            </a>
-            <Ext href={links.scholar} className="ml">
-              Google Scholar
-            </Ext>
-            <Ext href={links.github} className="ml">
-              GitHub
-            </Ext>
-            <Ext href={links.x} className="ml">
-              X
-            </Ext>
-            <Ext href={links.linkedin} className="ml">
-              LinkedIn
-            </Ext>
-            <Ext href={links.calendly} className="ml">
-              Book a chat
-            </Ext>
-          </p>
+          <SocialLinks id="contact" />
         </section>
 
         <section id="now" className="sec" aria-labelledby="now-h">
