@@ -188,22 +188,23 @@ export default function Home() {
 
           <div className="bio">
             <p>
-              I study how learning systems take in new knowledge, and what limits them. I&apos;m a PhD candidate in
-              Physics at Harvard, advised by{" "}
+              I study how learning systems work, from neural networks to language models, and how to put them to
+              work on science. I&apos;m a PhD candidate in Physics at Harvard, advised by{" "}
               <Ext href="https://en.wikipedia.org/wiki/Haim_Sompolinsky" className="tl">
                 Haim Sompolinsky
               </Ext>{" "}
-              at the Center for Brain Science. My path ran through philosophy, theoretical physics and evolutionary
-              dynamics before it reached the statistical mechanics of neural networks.
+              at the Center for Brain Science. There I&apos;ve used statistical mechanics to understand how neural
+              networks learn, and studied how language models take in new facts. I got here by way of philosophy,
+              theoretical physics and evolutionary dynamics.
             </p>
             <p>
-              Most of my work now is on the foundations for humans and AI doing science together: measuring the
-              research ability and taste of AI models, designing RL environments that train and test them, and
-              building tools for human researchers and AI agents alike. I founded{" "}
+              Lately most of my time goes into AI that does research. I want to know what models can really do as
+              scientists, give them real problems to practice on, and build tools that people and agents can use
+              together. That&apos;s why I started{" "}
               <Ext href={links.orchestra} className="tl">
                 Orchestra Research
-              </Ext>{" "}
-              to do this work.
+              </Ext>
+              .
             </p>
           </div>
 
