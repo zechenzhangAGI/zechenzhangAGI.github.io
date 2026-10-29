@@ -200,6 +200,7 @@ export type Project = {
   role?: string;
   status?: string;
   text: string;
+  image?: { src: string; alt: string };
   links: Link[];
 };
 
@@ -209,34 +210,55 @@ export const projects: Project[] = [
     name: "Orchestra",
     role: "Founder",
     text: "An AI-native research IDE, as far as we know the first. Real research is a long, open-ended game, and the breakthroughs still need a person's intuition and taste. So in Orchestra you set the direction and curate the ideas, while agents read the literature, run the experiments and analyze the results. It remembers the whole journey, every dead end and half-followed hunch, so that weeks later it can help you pivot.",
+    image: { src: "/projects/orchestra.webp", alt: "The Orchestra logo: a ring of fine blue and violet threads." },
     links: [{ label: "orchestra-research.com", href: "https://www.orchestra-research.com" }],
   },
   {
     name: "AI-Research-SKILLs",
     status: "13k+ stars",
     text: "An open-source library of skills that turns coding agents like Claude Code, Codex and Gemini into research engineers, from running GRPO to writing the paper.",
+    image: {
+      src: "/projects/ai-research-skills.webp",
+      alt: "An AI researcher hands a hypothesis to agents with skills for pre-training, post-training, serving and other tools, between a cognitive layer and an infrastructure layer.",
+    },
     links: [{ label: "GitHub", href: "https://github.com/Orchestra-Research/AI-Research-SKILLs" }],
   },
   {
     name: "ResearchTree",
     status: "Under review",
     text: "A benchmark for research ability that can be rebuilt after every model release. It turns any paper with a written derivation into a tree of problems, from the main result down to exam-sized steps, and grades a model at every level against the paper itself. That gives a model's research horizon: how big a piece of research it can carry on its own. Frontier models solve almost every step but much less of a whole paper, and when they fall short they mostly leave things out rather than get them wrong. Next, we want to use the trees as a training environment for long-horizon research.",
+    image: {
+      src: "/projects/researchtree.webp",
+      alt: "The ResearchTree pipeline: build a tree of problems from a paper, solve every node blind, judge each answer, and measure score against problem size.",
+    },
     links: [{ label: "researchtree.vercel.app", href: "https://researchtree.vercel.app" }],
   },
   {
     name: "SimLab",
     status: "In progress",
     text: "Long research projects take months and real money, so agents rarely get to practice them end to end. SimLab compresses long-horizon tasks into gyms built on real experimental data: an agent plans experiments, pays for them, reads the results and decides what to try next, in minutes instead of months. The same environments measure research judgment and taste, and give agents something to train on.",
+    image: { src: "/projects/simlab.webp", alt: "The SimLab mark: a grid of six squares, one filled in red." },
     links: [],
+  },
+  {
+    name: "Quantum Sensing Agent",
+    status: "2025 · system paper",
+    text: "A language-model agent that operates a real quantum-sensing experiment: a scanning confocal NV-center microscope in Amir Yacoby's lab at Harvard. Ruolan Xue and I built it in early 2025, when, as far as we know, no language-model agent had yet run a quantum-sensing experiment. It drives the instruments, scans for NV centers and takes ESR measurements, asking before it touches the hardware. The paper is also candid about where it broke: left fully on its own, the model invented results and then reasoned from them.",
+    image: {
+      src: "/projects/quantum-sensing-agent.webp",
+      alt: "Architecture of the Quantum Sensing Agent: a scientist chats with the agent core, whose actions pass through safeguards to tools that drive the lab's confocal NV setup, with the measurement loop below.",
+    },
+    links: [
+      {
+        label: "paper",
+        href: "https://github.com/zechenzhangAGI/quantum-sensing-agent/blob/master/docs/technical-report/qsa_technical_report.pdf",
+      },
+      { label: "GitHub", href: "https://github.com/zechenzhangAGI/quantum-sensing-agent" },
+    ],
   },
 ];
 
 export const earlierProjects: Project[] = [
-  {
-    name: "Quantum sensing agent",
-    text: "A language-model agent that runs NV-center experiments (autocalibration, Rabi, ESR), with Ruolan Xue and Amir Yacoby.",
-    links: [{ label: "GitHub", href: "https://github.com/zechenzhangAGI/quantum-sensing-agent" }],
-  },
   {
     name: "Harvard Physics Lab Hub",
     text: "Helps Harvard undergraduates find physics research labs.",

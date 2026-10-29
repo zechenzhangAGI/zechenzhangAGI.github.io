@@ -13,6 +13,7 @@ import {
   type Link,
   type Paper,
   type Post,
+  type Project,
 } from "@/content";
 
 const updated = new Date().toLocaleDateString("en-US", {
@@ -72,20 +73,30 @@ function Meta({ paper }: { paper: Paper }) {
   );
 }
 
-// A figure from the work, or for writing without one, a plain typographic plate.
-function Plate({ href, image, alt, label, where }: { href: string; image?: string; alt?: string; label: string; where?: string }) {
+// A figure or logo from the work, or for work without one, a plain typographic plate.
+function Plate({ href, image, alt, label, where }: { href?: string; image?: string; alt?: string; label: string; where?: string }) {
+  const plate = (
+    <span className="plate">
+      {image ? (
+        <Image src={image} alt={alt ?? ""} width={560} height={420} />
+      ) : (
+        <span className="text-plate">
+          <span className="kind">{label}</span>
+          {where && <span className="src">{where}</span>}
+        </span>
+      )}
+    </span>
+  );
+  if (!href) {
+    return (
+      <span className="plate-link" aria-hidden="true">
+        {plate}
+      </span>
+    );
+  }
   return (
     <a href={href} className="plate-link" target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
-      <span className="plate">
-        {image ? (
-          <Image src={image} alt={alt ?? ""} width={560} height={420} />
-        ) : (
-          <span className="text-plate">
-            <span className="kind">{label}</span>
-            {where && <span className="src">{where}</span>}
-          </span>
-        )}
-      </span>
+      {plate}
     </a>
   );
 }
@@ -120,6 +131,27 @@ function PostItem({ post }: { post: Post }) {
           <Ext href={post.href}>{post.title}</Ext>
         </h3>
         <p className="summary">{post.summary}</p>
+      </div>
+    </li>
+  );
+}
+
+// Projects use the same layout: main ones at paper size, earlier ones at writing size.
+function ProjectItem({ project, small }: { project: Project; small?: boolean }) {
+  const primary = project.links[0]?.href;
+  const meta = project.role ?? project.status;
+  return (
+    <li id={project.id} className={small ? "paper post project" : "paper project"}>
+      <Plate href={primary} image={project.image?.src} alt={project.image?.alt} label={project.name.split(",")[0]} />
+      <div>
+        {meta && (
+          <p className="meta mono">
+            <span>{meta}</span>
+          </p>
+        )}
+        <h3 className="p-title">{primary ? <Ext href={primary}>{project.name}</Ext> : project.name}</h3>
+        <p className="summary">{project.text}</p>
+        <LinkRow items={project.links} />
       </div>
     </li>
   );
@@ -230,33 +262,16 @@ export default function Home() {
               GitHub ↗
             </Ext>
           </div>
-          <div className="projects">
+          <ul>
             {projects.map((p) => (
-              <div key={p.name} id={p.id} className="project">
-                <h3>
-                  {p.name}
-                  {(p.role || p.status) && <span className="mono">{p.role ?? p.status}</span>}
-                </h3>
-                <p>{p.text}</p>
-                <LinkRow items={p.links} />
-              </div>
+              <ProjectItem key={p.name} project={p} />
             ))}
-          </div>
+          </ul>
 
           <p className="sub-h mono">Earlier</p>
-          <ul className="earlier">
+          <ul>
             {earlierProjects.map((p) => (
-              <li key={p.name}>
-                <span className="name">{p.name}</span>. {p.text}{" "}
-                {p.links.map((l, i) => (
-                  <span key={l.href} className="mono">
-                    {i > 0 && " · "}
-                    <Ext href={l.href} className="ml">
-                      {l.label}
-                    </Ext>
-                  </span>
-                ))}
-              </li>
+              <ProjectItem key={p.name} project={p} small />
             ))}
           </ul>
         </section>
