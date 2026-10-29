@@ -264,7 +264,7 @@ export const earlierProjects: Project[] = [
     text: "Helps Harvard undergraduates find physics research labs.",
     image: {
       src: "/projects/harvard-physics-lab-hub.webp",
-      alt: "The harvardphysics.org home page: \"Discover Research Opportunities\", with buttons to browse labs and view the campus map.",
+      alt: "The lab network on harvardphysics.org: Harvard physics research groups as nodes, linked by shared research fields and techniques.",
     },
     links: [{ label: "harvardphysics.org", href: "https://harvardphysics.org" }],
   },
