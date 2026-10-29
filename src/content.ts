@@ -268,7 +268,6 @@ export const earlierProjects: Project[] = [
     name: "Galileo, Return Science to the Curious",
     text: "Orchestra's launch film, made with Veo 3.1 and Claude.",
     links: [
-      { label: "film", href: "https://www.youtube.com/watch?v=BPOW0qew_gQ" },
       { label: "GitHub", href: "https://github.com/zechenzhangAGI/vibe-filmmaking-veo3-claude" },
     ],
   },
