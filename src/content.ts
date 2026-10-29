@@ -262,11 +262,19 @@ export const earlierProjects: Project[] = [
   {
     name: "Harvard Physics Lab Hub",
     text: "Helps Harvard undergraduates find physics research labs.",
+    image: {
+      src: "/projects/harvard-physics-lab-hub.webp",
+      alt: "The harvardphysics.org home page: \"Discover Research Opportunities\", with buttons to browse labs and view the campus map.",
+    },
     links: [{ label: "harvardphysics.org", href: "https://harvardphysics.org" }],
   },
   {
     name: "Galileo, Return Science to the Curious",
     text: "Orchestra's launch film, made with Veo 3.1 and Claude.",
+    image: {
+      src: "/projects/galileo.webp",
+      alt: "The film's cover: an ink-and-colour sketch of Galileo looking through a brass telescope under a starry sky.",
+    },
     links: [
       { label: "GitHub", href: "https://github.com/zechenzhangAGI/vibe-filmmaking-veo3-claude" },
     ],
@@ -274,6 +282,10 @@ export const earlierProjects: Project[] = [
   {
     name: "Random AI Chat Room",
     text: "Chat with any model in character.",
+    image: {
+      src: "/projects/random-ai-chat-room.webp",
+      alt: "The Random AI Chat Room home page: \"Meet AI Strangers\", a row of cartoon character avatars, and buttons to talk to a stranger or join a group room.",
+    },
     links: [{ label: "app", href: "https://random-ai-chat-room.vercel.app" }],
   },
 ];
